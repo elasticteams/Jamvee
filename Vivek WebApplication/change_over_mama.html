@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#center_img {
+		margin-left: 300px;
+		width: 300px; /*the image width*/
+        height: 300px; /*the image height*/ 
+	}
+.tooltip-wrap {
+  position: relative;
+}
+.tooltip-wrap .tooltip-content {
+  display: none;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  background-color: #fff;
+  padding: .5em;
+}
+.tooltip-wrap:hover .tooltip-content {
+  display: block;
+}
+</style>
+<script type="text/javascript">
+function buttonClicked() {
+var center_img_location = "resources/Dress_Collection";
+var below_img_location = "resources/Set";
+var total_collections = 2;
+
+var below_img = document.getElementById('below_img'); 
+var center_img = document.getElementById('center_img');  
+
+var selected_index = below_img.src.substr(-5,1);
+new_index = (parseInt(selected_index))%total_collections + 1;
+
+center_img.src = center_img_location + selected_index + ".png";
+below_img.src = below_img_location + new_index + ".png"; 
+}
+
+</script>
+
+</head>
+<body>
+
+<div class="tooltip-wrap">
+  <img id="center_img" src="resources/Dress_Collection1.png" alt="Collection1" />
+  
+</div>
+
+
+<input type="button" value="try changing"  style="align:right;"id="change_btn"  onclick="buttonClicked();"/>  
+<img id="below_img" src="resources/Set2.png" alt="Set2" />
+</div>
+</body>
+
+</html>
